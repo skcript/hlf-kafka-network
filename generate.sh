@@ -4,16 +4,21 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 #
-export PATH=$GOPATH/src/github.com/hyperledger/fabric/build/bin:${PWD}/../bin:${PWD}:$PATH
-export FABRIC_CFG_PATH=${PWD}
+export PATH=$GOPATH/src/github.com/hyperledger/fabric/build/bin:${PWD}/bin:${PWD}:$PATH
+export FABRIC_CFG_PATH=${PWD}/network-config
 CHANNEL_NAME=mychannel
+
+# create folders
+mkdir -p config
+mkdir -p crypto-config
 
 # remove previous crypto material and config transactions
 rm -fr ./config/*
 rm -fr ./crypto-config/*
 
+
 # generate crypto material
-cryptogen generate --config=./crypto-config.yaml
+cryptogen generate --config=./network-config/crypto-config.yaml
 if [ "$?" -ne 0 ]; then
   echo "Failed to generate crypto material..."
   exit 1

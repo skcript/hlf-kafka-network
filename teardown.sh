@@ -8,12 +8,12 @@
 set -e
 
 # Shut down the Docker containers for the system tests.
-docker-compose -f docker-compose.yml kill && docker-compose -f docker-compose.yml down
-
+docker-compose -f ./network-config/docker-compose-kafka.yml kill && docker-compose -f ./network-config/docker-compose-kafka.yml down
+docker-compose -f ./network-config/docker-compose-cli.yml kill && docker-compose -f ./network-config/docker-compose-cli.yml down
 # remove the local state
 rm -f ~/.hfc-key-store/*
 
 # remove chaincode docker images
-docker rmi $(docker images dev-* -q)
+docker rmi $(docker images net-* -q)
 
 # Your system is now clean

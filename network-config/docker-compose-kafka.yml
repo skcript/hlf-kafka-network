@@ -145,9 +145,9 @@ services:
             - ORDERER_ABSOLUTEMAXBYTES=${ORDERER_ABSOLUTEMAXBYTES}
             - ORDERER_PREFERREDMAXBYTES=${ORDERER_PREFERREDMAXBYTES}
         volumes:
-            - ./crypto-config/ordererOrganizations/example.com/orderers/orderer0.example.com/msp:/var/hyperledger/msp
-            - ./crypto-config/ordererOrganizations/example.com/orderers/orderer0.example.com/tls:/var/hyperledger/tls
-            - ./config/:/var/hyperledger/configs
+            - ../crypto-config/ordererOrganizations/example.com/orderers/orderer0.example.com/msp:/var/hyperledger/msp
+            - ../crypto-config/ordererOrganizations/example.com/orderers/orderer0.example.com/tls:/var/hyperledger/tls
+            - ../config/:/var/hyperledger/configs
         depends_on:
             - kafka0
             - kafka1
@@ -178,9 +178,9 @@ services:
             - ORDERER_ABSOLUTEMAXBYTES=${ORDERER_ABSOLUTEMAXBYTES}
             - ORDERER_PREFERREDMAXBYTES=${ORDERER_PREFERREDMAXBYTES}
         volumes:
-            - ./crypto-config/ordererOrganizations/example.com/orderers/orderer1.example.com/msp:/var/hyperledger/msp
-            - ./crypto-config/ordererOrganizations/example.com/orderers/orderer1.example.com/tls:/var/hyperledger/tls
-            - ./config/:/var/hyperledger/configs
+            - ../crypto-config/ordererOrganizations/example.com/orderers/orderer1.example.com/msp:/var/hyperledger/msp
+            - ../crypto-config/ordererOrganizations/example.com/orderers/orderer1.example.com/tls:/var/hyperledger/tls
+            - ../config/:/var/hyperledger/configs
         depends_on:
             - kafka0
             - kafka1
@@ -209,9 +209,9 @@ services:
             - ORDERER_ABSOLUTEMAXBYTES=${ORDERER_ABSOLUTEMAXBYTES}
             - ORDERER_PREFERREDMAXBYTES=${ORDERER_PREFERREDMAXBYTES}
         volumes:
-            - ./crypto-config/ordererOrganizations/example.com/orderers/orderer2.example.com/msp:/var/hyperledger/msp
-            - ./crypto-config/ordererOrganizations/example.com/orderers/orderer2.example.com/tls:/var/hyperledger/tls
-            - ./config/:/var/hyperledger/configs
+            - ../crypto-config/ordererOrganizations/example.com/orderers/orderer2.example.com/msp:/var/hyperledger/msp
+            - ../crypto-config/ordererOrganizations/example.com/orderers/orderer2.example.com/tls:/var/hyperledger/tls
+            - ../config/:/var/hyperledger/configs
         depends_on:
             - kafka0
             - kafka1
@@ -242,10 +242,10 @@ services:
             - CORE_PEER_TLS_CLIENTCERT_FILE=/var/hyperledger/users/Admin@org1.example.com/tls/client.crt
             - CORE_PEER_TLS_CLIENTKEY_FILE=/var/hyperledger/users/Admin@org1.example.com/tls/client.key
         volumes:
-            - ./crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/msp:/var/hyperledger/msp
-            - ./crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls:/var/hyperledger/tls
-            - ./crypto-config/peerOrganizations/org1.example.com/users:/var/hyperledger/users
-            - ./config/:/var/hyperledger/configs
+            - ../crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/msp:/var/hyperledger/msp
+            - ../crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls:/var/hyperledger/tls
+            - ../crypto-config/peerOrganizations/org1.example.com/users:/var/hyperledger/users
+            - ../config/:/var/hyperledger/configs
 
         depends_on:
             - orderer0.example.com
@@ -277,10 +277,10 @@ services:
             - CORE_PEER_TLS_CLIENTCERT_FILE=/var/hyperledger/users/Admin@org2.example.com/tls/client.crt
             - CORE_PEER_TLS_CLIENTKEY_FILE=/var/hyperledger/users/Admin@org2.example.com/tls/client.key
         volumes:
-            - ./crypto-config/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/msp:/var/hyperledger/msp
-            - ./crypto-config/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls:/var/hyperledger/tls
-            - ./crypto-config/peerOrganizations/org2.example.com/users:/var/hyperledger/users
-            - ./config/:/var/hyperledger/configs
+            - ../crypto-config/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/msp:/var/hyperledger/msp
+            - ../crypto-config/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls:/var/hyperledger/tls
+            - ../crypto-config/peerOrganizations/org2.example.com/users:/var/hyperledger/users
+            - ../config/:/var/hyperledger/configs
         depends_on:
             - orderer0.example.com
             - orderer1.example.com
@@ -310,10 +310,10 @@ services:
             - CORE_PEER_TLS_CLIENTCERT_FILE=/var/hyperledger/users/Admin@org1.example.com/tls/client.crt
             - CORE_PEER_TLS_CLIENTKEY_FILE=/var/hyperledger/users/Admin@org1.example.com/tls/client.key
         volumes:
-            - ./crypto-config/peerOrganizations/org1.example.com/peers/peer1.org1.example.com/msp:/var/hyperledger/msp
-            - ./crypto-config/peerOrganizations/org1.example.com/peers/peer1.org1.example.com/tls:/var/hyperledger/tls
-            - ./crypto-config/peerOrganizations/org1.example.com/users:/var/hyperledger/users
-            - ./config/:/var/hyperledger/configs
+            - ../crypto-config/peerOrganizations/org1.example.com/peers/peer1.org1.example.com/msp:/var/hyperledger/msp
+            - ../crypto-config/peerOrganizations/org1.example.com/peers/peer1.org1.example.com/tls:/var/hyperledger/tls
+            - ../crypto-config/peerOrganizations/org1.example.com/users:/var/hyperledger/users
+            - ../config/:/var/hyperledger/configs
         depends_on:
             - orderer0.example.com
             - orderer1.example.com
@@ -344,10 +344,10 @@ services:
             - CORE_PEER_TLS_CLIENTCERT_FILE=/var/hyperledger/users/Admin@org2.example.com/tls/client.crt
             - CORE_PEER_TLS_CLIENTKEY_FILE=/var/hyperledger/users/Admin@org2.example.com/tls/client.key
         volumes:
-            - ./crypto-config/peerOrganizations/org2.example.com/peers/peer1.org2.example.com/msp:/var/hyperledger/msp
-            - ./crypto-config/peerOrganizations/org2.example.com/peers/peer1.org2.example.com/tls:/var/hyperledger/tls
-            - ./crypto-config/peerOrganizations/org2.example.com/users:/var/hyperledger/users
-            - ./config/:/var/hyperledger/configs
+            - ../crypto-config/peerOrganizations/org2.example.com/peers/peer1.org2.example.com/msp:/var/hyperledger/msp
+            - ../crypto-config/peerOrganizations/org2.example.com/peers/peer1.org2.example.com/tls:/var/hyperledger/tls
+            - ../crypto-config/peerOrganizations/org2.example.com/users:/var/hyperledger/users
+            - ../config/:/var/hyperledger/configs
         depends_on:
             - orderer0.example.com
             - orderer1.example.com

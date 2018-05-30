@@ -10,9 +10,12 @@ set -ev
 # don't rewrite paths for Windows Git Bash users
 export MSYS_NO_PATHCONV=1
 
-docker-compose -f docker-compose-kafka.yml down    
+docker-compose -f ./network-config/docker-compose-kafka.yml down
+docker-compose -f ./network-config/docker-compose-cli.yml down
 
-docker-compose -f docker-compose-kafka.yml up -d
+
+docker-compose -f ./network-config/docker-compose-kafka.yml up -d
+docker-compose -f ./network-config/docker-compose-cli.yml up -d
 
 # wait for Hyperledger Fabric to start
 # incase of errors when running later commands, issue export FABRIC_START_TIMEOUT=<larger number>

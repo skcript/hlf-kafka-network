@@ -53,8 +53,8 @@ services:
             - ORDERER_TLS_CLIENTCERT_FILE=/var/hyperledger/users/Admin@example.com/tls/client.crt
             - ORDERER_TLS_CLIENTKEY_FILE=/var/hyperledger/users/Admin@example.com/tls/client.key
         volumes:
-            - ./config/:/var/hyperledger/configs
-            - ./crypto-config/ordererOrganizations/example.com/users:/var/hyperledger/users
+            - ../config/:/var/hyperledger/configs
+            - ../crypto-config/ordererOrganizations/example.com/users:/var/hyperledger/users
         working_dir: /opt/gopath/src/github.com/hyperledger/fabric/orderer
         command: orderer
         ports:
@@ -86,10 +86,9 @@ services:
             - CORE_PEER_TLS_ROOTCERT_FILE=/var/hyperledger/tls/ca.crt
         volumes:
             - /var/run/:/host/var/run/
-            - ../../../common:/opt/gopath/src/github.com/hyperledger/fabric/common
-            - ../../../vendor:/opt/gopath/src/github.com/hyperledger/fabric/vendor
-            - ./crypto-config/:/var/hyperledger/configs
-            - ./config/:/var/hyperledger/configs
+            - $GOPATH/src/github.com/hyperledger/fabric/:/opt/gopath/src/github.com/hyperledger/fabric/
+            - ../crypto-config/:/var/hyperledger/configs
+            - ../config/:/var/hyperledger/configs
         command: peer node start
         ports:
             - '7051'

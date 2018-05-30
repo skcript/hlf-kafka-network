@@ -5,135 +5,83 @@ This repository holds the configuration and the sample chaincode used for testin
 ### Folder Structure
 ```
 ./
+├── bin
+│   ├── configtxgen
+│   ├── configtxlator
+│   ├── cryptogen
+│   ├── fabric-ca-client
+│   ├── get-docker-images.sh
+│   ├── orderer
+│   └── peer
 ├── chaincode
-├── config
-├── crypto-config
-│   ├── ordererOrganizations
-│   │   └── example.com
-│   │       ├── ca
-│   │       ├── msp
-│   │       │   ├── admincerts
-│   │       │   ├── cacerts
-│   │       │   └── tlscacerts
-│   │       ├── orderers
-│   │       │   ├── orderer0.example.com
-│   │       │   │   ├── msp
-│   │       │   │   │   ├── admincerts
-│   │       │   │   │   ├── cacerts
-│   │       │   │   │   ├── keystore
-│   │       │   │   │   ├── signcerts
-│   │       │   │   │   └── tlscacerts
-│   │       │   │   └── tls
-│   │       │   ├── orderer1.example.com
-│   │       │   │   ├── msp
-│   │       │   │   │   ├── admincerts
-│   │       │   │   │   ├── cacerts
-│   │       │   │   │   ├── keystore
-│   │       │   │   │   ├── signcerts
-│   │       │   │   │   └── tlscacerts
-│   │       │   │   └── tls
-│   │       │   └── orderer2.example.com
-│   │       │       ├── msp
-│   │       │       │   ├── admincerts
-│   │       │       │   ├── cacerts
-│   │       │       │   ├── keystore
-│   │       │       │   ├── signcerts
-│   │       │       │   └── tlscacerts
-│   │       │       └── tls
-│   │       ├── tlsca
-│   │       └── users
-│   │           └── Admin@example.com
-│   │               ├── msp
-│   │               │   ├── admincerts
-│   │               │   ├── cacerts
-│   │               │   ├── keystore
-│   │               │   ├── signcerts
-│   │               │   └── tlscacerts
-│   │               └── tls
-│   └── peerOrganizations
-│       ├── org1.example.com
-│       │   ├── ca
-│       │   ├── msp
-│       │   │   ├── admincerts
-│       │   │   ├── cacerts
-│       │   │   └── tlscacerts
-│       │   ├── peers
-│       │   │   ├── peer0.org1.example.com
-│       │   │   │   ├── msp
-│       │   │   │   │   ├── admincerts
-│       │   │   │   │   ├── cacerts
-│       │   │   │   │   ├── keystore
-│       │   │   │   │   ├── signcerts
-│       │   │   │   │   └── tlscacerts
-│       │   │   │   └── tls
-│       │   │   └── peer1.org1.example.com
-│       │   │       ├── msp
-│       │   │       │   ├── admincerts
-│       │   │       │   ├── cacerts
-│       │   │       │   ├── keystore
-│       │   │       │   ├── signcerts
-│       │   │       │   └── tlscacerts
-│       │   │       └── tls
-│       │   ├── tlsca
-│       │   └── users
-│       │       ├── Admin@org1.example.com
-│       │       │   ├── msp
-│       │       │   │   ├── admincerts
-│       │       │   │   ├── cacerts
-│       │       │   │   ├── keystore
-│       │       │   │   ├── signcerts
-│       │       │   │   └── tlscacerts
-│       │       │   └── tls
-│       │       └── User1@org1.example.com
-│       │           ├── msp
-│       │           │   ├── admincerts
-│       │           │   ├── cacerts
-│       │           │   ├── keystore
-│       │           │   ├── signcerts
-│       │           │   └── tlscacerts
-│       │           └── tls
-│       └── org2.example.com
-│           ├── ca
-│           ├── msp
-│           │   ├── admincerts
-│           │   ├── cacerts
-│           │   └── tlscacerts
-│           ├── peers
-│           │   ├── peer0.org2.example.com
-│           │   │   ├── msp
-│           │   │   │   ├── admincerts
-│           │   │   │   ├── cacerts
-│           │   │   │   ├── keystore
-│           │   │   │   ├── signcerts
-│           │   │   │   └── tlscacerts
-│           │   │   └── tls
-│           │   └── peer1.org2.example.com
-│           │       ├── msp
-│           │       │   ├── admincerts
-│           │       │   ├── cacerts
-│           │       │   ├── keystore
-│           │       │   ├── signcerts
-│           │       │   └── tlscacerts
-│           │       └── tls
-│           ├── tlsca
-│           └── users
-│               ├── Admin@org2.example.com
-│               │   ├── msp
-│               │   │   ├── admincerts
-│               │   │   ├── cacerts
-│               │   │   ├── keystore
-│               │   │   ├── signcerts
-│               │   │   └── tlscacerts
-│               │   └── tls
-│               └── User1@org2.example.com
-│                   ├── msp
-│                   │   ├── admincerts
-│                   │   ├── cacerts
-│                   │   ├── keystore
-│                   │   ├── signcerts
-│                   │   └── tlscacerts
-│                   └── tls
-└── network-config
+│   └── sacc.go
+├── network-config
+│   ├── configtx.yaml
+│   ├── crypto-config.yaml
+│   ├── docker-compose-base.yml
+│   ├── docker-compose-cli.yml
+│   ├── docker-compose-couchdb.yml
+│   ├── docker-compose-kafka.yml
+│   ├── docker-compose-peer-org3.yml
+│   └── docker-compose-solo.yml
+├── generate.sh
+├── install.sh
+├── README.md
+├── start.sh
+├── stop.sh
+├── teardown.sh
+├── test.sh
+└── update.sh
 
-129 directories
-``` 
+3 directories, 24 files
+```
+### Description
+
+- `bin/` contains all the binaries required for generating crypto material.
+- `chaincode/` contains the sacc chaincode, present in `fabric-samples`.
+- `network-config/` contains all the configuration `yaml` files for the network.
+- `generate.sh` will generate all the crypto-material required for the network to run.
+- `install.sh` will install and instantiate the chaincode.
+- `start.sh` will start all the containers in docker-compose files.
+- `stop.sh` will stop and remove all docker containers, use with caution.
+- `teardown.sh` will kill containers and remove images generated by the network. 
+- `test.sh` is used to test an invoke query.
+- `update.sh` is used to install and upgrade chaincode.
+
+### Steps
+
+- Make sure you've grabbed all the [prerequisites](http://hyperledger-fabric.readthedocs.io/en/release-1.1/prereqs.html) and [samples](http://hyperledger-fabric.readthedocs.io/en/release-1.1/samples.html#) for running hyperledger fabric.
+- In your `$GOPATH`, make sure you have the hyperledger fabric source.
+```bash
+cd $GOPATH/src/github.com/
+mkdir hyperledger
+cd hyperledger
+git clone https://github.com/hyperledger/fabric.git
+```
+- Clone this repository and enter the directory.
+```bash
+git clone https://github.com/Presto412/Kafka-Fabric-Network.git
+cd Kafka-Fabric-Network
+```
+NOTE : Give exec permissions to the shell scripts
+```chmod 777 ./script-name.sh```
+- Generate the crypto-material
+```bash
+./generate.sh
+```
+- Start the network
+```bash
+./start.sh
+```
+- Install and Instantiate the chaincode
+```bash
+./install.sh
+```
+- Verify if all the docker containers are running
+```bash
+docker ps 
+```
+- Test a sample invoke command
+```bash
+./test.sh
+```

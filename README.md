@@ -1,6 +1,28 @@
 # Kafka Fabric Network
 
-This repository holds the configuration and the sample chaincode used for testing, for the blog post.
+This repository holds the configuration and the sample chaincode for testing a kafka enabled network.
+
+## Introduction
+
+The Hyperledger Fabric has introduced Kafka as it’s primary consensus mechanism among the orderers. While in development, for testing purposes, a solo config orderer is used. However, in production, you need to have multiple orderer nodes set up to have fail proof systems. In the case of a hardware/software failure, this is what will rescue you from critical situations. Kafka helps implement this easily. To understand in detail how all of this works, refer to this [article](https://paper.dropbox.com/doc/The-ABCs-of-Kafka-in-Hyperledger-Fabric-7oIFgK5R1Ll4CJznepeMU). 
+
+
+## Assumptions
+
+You already know how to work with Hyperledger Fabric and deploy chaincode to the network in development. You are also comfortable with docker and docker-compose. To get comfortable with these topics, refer to these [articles](https://www.skcript.com/svr/blockchain/).
+
+
+## Network Architecture
+
+We have a simple network configuration
+
+- 3 Orderers.
+- 2 Organizations.
+- 4 peers, 2 for each organization.
+- 4 Kafka broker instances.
+- 3 Zookeper instances.
+
+## Technical Documentation
 
 ### Folder Structure
 ```
@@ -84,4 +106,8 @@ docker ps
 - Test a sample invoke command
 ```bash
 ./test.sh
+```
+- Stop every docker container and kill all the containers
+```bash
+./stop.sh
 ```

@@ -4,7 +4,7 @@ This repository holds the configuration and the sample chaincode for testing a k
 
 ## Introduction
 
-The Hyperledger Fabric has introduced Kafka as it’s primary consensus mechanism among the orderers. While in development, for testing purposes, a solo config orderer is used. However, in production, you need to have multiple orderer nodes set up to have fail proof systems. In the case of a hardware/software failure, this is what will rescue you from critical situations. Kafka helps implement this easily. To understand in detail how all of this works, refer to this [article](https://paper.dropbox.com/doc/The-ABCs-of-Kafka-in-Hyperledger-Fabric-7oIFgK5R1Ll4CJznepeMU). 
+The Hyperledger Fabric has introduced Kafka as it’s primary consensus mechanism among the orderers. While in development, for testing purposes, a solo config orderer is used. However, in production, you need to have multiple orderer nodes set up to have fail proof systems. In the case of a hardware/software failure, this is what will rescue you from critical situations. Kafka helps implement this easily. To understand in detail how all of this works, refer to this article [TODO]. 
 
 
 ## Assumptions
